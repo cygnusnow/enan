@@ -1,0 +1,439 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>TuShare -财经数据接口包</title>
+    <meta content="开源股票数据接口 股票数据 股票数据接口 免费股票数据 python股票数据" name="keywords"/>
+    <meta name="description" content="TuShare为金融数据分析提供便捷、快速的接口，与pandas无缝对接"/>
+	<meta content="index,follow" name="robots"/>
+	<meta content="TuShare" name="Jimmy Liu"/>
+    <meta name="application-name" content="兔享"/>
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="TuShare 0.2.9 documentation" href="#" />
+    <link rel="next" title="前言" href="" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="#">TuShare 0.2.9 documentation</a> &raquo;</li> 
+      </ul>
+	  <wb:follow-button uid="1304687120" type="red_1" width="67" height="24" style="position:absolute;top:0;right:0;border:0;z-index:1000;width:260px"></wb:follow-button>
+      <a target="_blank" href="https://github.com/waditu/tushare">
+      	<img alt="Fork me on GitHub" src="_static/fork.png" style="position:absolute;top:0;right:0;border:0;z-index:1000;width:149px" id="fork-image">
+      </a>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="index.html">前言</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">致谢</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id3">使用对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id4">使用前提</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id5">下载安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id6">版本升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id7">版本信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trading.html">交易数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id2">历史行情</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id3">复权数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id4">实时行情</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id5">历史分笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id6">实时分笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id7">当日历史分笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id8">大盘指数行情列表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">投资参考数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id2">分配预案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id3">业绩预告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id4">限售股解禁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id5">基金持股</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id6">新股数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id7">融资融券（沪市）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id8">融资融券（深市）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classifying.html">股票分类数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id2">行业分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id3">概念分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id4">地域分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id5">中小板分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id6">创业板分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id7">风险警示板分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id8">沪深300成份及权重</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id9">上证50成份股</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id10">中证500成份股</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id11">终止上市股票列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id12">暂停上市股票列表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental.html">基本面数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id2">股票列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id3">业绩报告（主表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id4">盈利能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id5">营运能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id6">成长能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id7">偿债能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id8">现金流量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">宏观经济数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id2">存款利率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id3">贷款利率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id4">存款准备金率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id5">货币供应量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id6">货币供应量(年底余额)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id7">国内生产总值(年度)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id8">国内生产总值(季度)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#gdp">三大需求对GDP贡献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id9">三大产业对GDP拉动</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id10">三大产业贡献率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id11">居民消费价格指数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id12">工业品出厂价格指数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="newsevent.html">新闻事件数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="newsevent.html#id2">即时新闻</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newsevent.html#id3">信息地雷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newsevent.html#id4">新浪股吧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shibor.html">银行间同业拆放利率</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#shibor">Shibor拆放利率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#id2">银行报价数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#id3">Shibor均值数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#lpr">贷款基础利率（LPR）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#id4">LPR均值数据</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storing.html">数据存储</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#csv">CSV文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#excel">Excel文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#hdf5">HDF5文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#json">JSON文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#mysql">MySQL数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#mongodb">MongoDB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="donate.html">关于捐助</a></li>
+</ul>
+
+                
+
+                <p>
+
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="id1">
+<h1>前言<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TuShare是一个免费、开源的python财经数据接口包。</strong>主要实现对股票等金融数据从<strong>数据采集</strong>、<strong>清洗加工</strong>
+到
+<strong>数据存储</strong>的过程，能够为金融分析人员提供快速、整洁、和多样的便于分析的数据，为他们在数据来源方面极大地减轻工作量，使他们更加专注于策略和模型的研究与实现上。考虑到Python
+pandas包在金融量化分析中体现出的优势，TuShare返回的绝大部分的数据格式都是pandas
+DataFrame类型，非常便于用pandas/NumPy/Matplotlib进行数据分析和可视化。当然，如果您习惯了用Excel或者关系型数据库做分析，您也可以通过TuShare的数据存储功能，将数据全部保存到本地后进行分析。应一些用户的请求，从0.2.5版本开始，TuShare同时兼容Python
+2.x和Python
+3.x，对部分代码进行了重构，并优化了一些算法，确保数据获取的高效和稳定。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TuShare从发布到现在，已经帮助很多用户在数据方面降低了工作压力，同时也得到很多用户的反馈，TuShare将一如既往的用免费和开源的形式分享出来，希望对有需求的人带来一些帮助。如果您觉得TuShare好用并有所收获，请通过<strong>微博</strong>、微信或者网站<strong>博客</strong>的方式分享出去，让更多的人了解和使用它，使它能在大家的使用过程中逐步得到改进和提升。TuShare还在不断的完善和优化，后期将逐步增加港股、期货、外汇和基金方面的数据，所以，您的支持和肯定才是TuShare坚持下去的动力。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TuShare的数据主要来源于网络，如果在使用过程碰到数据无法获取或发生数据错误的情况，可以通过<strong>Email:jimmysoa&#64;sina.cn
+QQ:52799046</strong>
+联系我，如果有什么好的建议和意见，也请及时联系我，在此谢过。如果在pandas/NumPy技术上有问题，欢迎加入“pandas数据分析”QQ群：297882961，我会和大家一起为您解决。</p>
+<div class="figure">
+<img alt="" src="_images/main_pic_min.png" />
+</div>
+<div class="section" id="id2">
+<h2>致谢<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>感谢<a class="reference external" href="http://finance.sina.com.cn/" target="_blank">新浪财经</a>、<a class="reference external" href="http://finance.ifeng.com/" target="_blank">凤凰财经</a>、上交所和深交所提供数据</li>
+<li>感谢深圳大学经济学院研究生<strong>邓志浩</strong>的测试和校对</li>
+<li>感谢上海纽约大学波动研究所<a target="_blank" class="reference external" href="http://www.zhihu.com/people/zhao-zhi-qiang-99">赵志强</a>的审阅</li>
+<li>感谢在QQ、微博和Email里提出意见和建议的很多个不知道名字的朋友们</li>
+<li>特别感谢对TuShare进行过捐助的朋友，是你们让我一直保持着更加努力和认真的做事，也让我学会用感恩的心去做好每一件事。</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>使用对象<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>量化投资分析师（Quant）</li>
+<li>对金融市场进行大数据分析的企业和个人</li>
+<li>开发以证券为基础的金融类产品和解决方案的公司</li>
+<li>正在学习利用python进行数据分析的人</li>
+</ul>
+<p>【注：最近有人问到说TuShare不方便看行情，我想说的是，TuShare不是普通炒股者用的软件，而是为那些有兴趣做股票期货数据分析的人提供pandas矩阵数据的工具，至于能不能用来炒股以及效果如何，就看个人的能力了】</p>
+</div>
+<div class="section" id="id4">
+<h2>使用前提<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>安装Python</li>
+<li>安装pandas</li>
+</ul>
+<p>建议安装Anaconda（<a class="reference external" href="http://www.continuum.io/downloads" target="_blank">http://www.continuum.io/downloads</a>），一次安装包括了Python环境和全部依赖包，减少问题出现的几率。</p>
+</div>
+<div class="section" id="id5">
+<h2>下载安装<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>方式1：pip install tushare</li>
+<li>方式2：访问<a class="reference external" href="https://pypi.python.org/pypi/tushare/" target="_blank">https://pypi.python.org/pypi/tushare/</a>下载安装</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>版本升级<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>pip install tushare --upgrade</li>
+</ul>
+<p>查看当前版本的方法：</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">tushare</span>
+
+<span class="k">print</span> <span class="n">tushare</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>版本信息<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>0.2.9 2015/05/21</p>
+<ul>
+<li><dl class="first docutils">
+<dt>新增上海银行间同业拆放利率模块</dt>
+<dd><ul class="first last simple">
+<li>银行间同业拆放利率（Shibor）</li>
+<li>Shibor银行报价数据</li>
+<li>Shibor均值数据</li>
+<li>贷款基础利率（LPR）</li>
+<li>贷款基础利率均值数据</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">基本面模块接口优化</p>
+</li>
+<li><p class="first">历史某一阶段的前复权数据bug修复</p>
+</li>
+<li><p class="first">开通<a class="reference external" href="http://tushare.org" target="_blank">http://tushare.org</a>域名官网</p>
+</li>
+</ul>
+<p>0.2.8 2015/04/28</p>
+<ul class="simple">
+<li>新增大盘指数实时行情列表</li>
+<li>新增大盘指数历史行情数据（全部）</li>
+<li>新增终止上市公司列表（退市）</li>
+<li>新增暂停上市公司列表</li>
+<li>修正融资融券明细无日期的缺陷</li>
+<li>修正get_h_data部分bug</li>
+</ul>
+<p>0.2.6 2015/04/22</p>
+<ul class="simple">
+<li>新增沪市融资融券列表</li>
+<li>新增沪市融资融券明细列表</li>
+<li>新增深市融资融券列表</li>
+<li>新增深市融资融券明细列表</li>
+<li>修正复权数据数据源出现null造成异常问题（对大约300个股票有影响）</li>
+</ul>
+<p>0.2.5 2015/04/16</p>
+<ul class="simple">
+<li>完成python2.x和python3.x兼容性支持</li>
+<li>部分算法优化和代码重构</li>
+<li>新增中证500成份股</li>
+<li>新增当日分笔交易明细</li>
+<li>修正分配预案（高送转）bug</li>
+</ul>
+<p>0.2.3 2015/04/11</p>
+<ul class="simple">
+<li>新增“新浪股吧”消息和热度</li>
+<li>新增新股上市数据</li>
+<li>修正“基本面”模块中数据重复的问题</li>
+<li>修正历史数据缺少一列column（数据来源问题）的bug</li>
+</ul>
+<p>0.2.0 2015/03/17</p>
+<ul class="simple">
+<li>新增历史复权数据接口</li>
+<li>新增即时滚动新闻、信息地雷数据</li>
+<li>新增沪深300指数成股份及动态权重、</li>
+<li>新增上证50指数成份股</li>
+<li>修改历史行情数据类型为float</li>
+</ul>
+<p>0.1.9 2015/02/06</p>
+<ul class="simple">
+<li>增加分类数据</li>
+<li>增加数据存储示例</li>
+</ul>
+<p>0.1.6 2015/01/27</p>
+<ul class="simple">
+<li>增加了重点指数的历史和实时行情</li>
+<li>更新docs</li>
+</ul>
+<p>0.1.5 2015/01/26</p>
+<ul class="simple">
+<li>增加基本面数据接口</li>
+<li>发布一版使用手册，开通<a class="reference external" href="http://tushare.waditu.com">TuShare
+docs</a>网站</li>
+</ul>
+<p>0.1.3 2015/01/13</p>
+<ul class="simple">
+<li>增加实时交易数据的获取</li>
+<li>Done for crawling Realtime Quotes data</li>
+</ul>
+<p>0.1.1 2015/01/11</p>
+<ul class="simple">
+<li>增加tick数据的获取</li>
+</ul>
+<p>0.1.0 2014/12/01</p>
+<ul class="simple">
+<li>创建第一个版本</li>
+<li>实现个股历史数据的获取</li>
+</ul>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="index.html">前言</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">致谢</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id3">使用对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id4">使用前提</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id5">下载安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id6">版本升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id7">版本信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trading.html">交易数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id2">历史行情</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id3">复权数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id4">实时行情</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id5">历史分笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id6">实时分笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id7">当日历史分笔</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trading.html#id8">大盘指数行情列表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">投资参考数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id2">分配预案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id3">业绩预告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id4">限售股解禁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id5">基金持股</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id6">新股数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id7">融资融券（沪市）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#id8">融资融券（深市）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="classifying.html">股票分类数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id2">行业分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id3">概念分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id4">地域分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id5">中小板分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id6">创业板分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id7">风险警示板分类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id8">沪深300成份及权重</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id9">上证50成份股</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id10">中证500成份股</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id11">终止上市股票列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifying.html#id12">暂停上市股票列表</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental.html">基本面数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id2">股票列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id3">业绩报告（主表）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id4">盈利能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id5">营运能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id6">成长能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id7">偿债能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fundamental.html#id8">现金流量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macro.html">宏观经济数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id2">存款利率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id3">贷款利率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id4">存款准备金率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id5">货币供应量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id6">货币供应量(年底余额)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id7">国内生产总值(年度)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id8">国内生产总值(季度)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#gdp">三大需求对GDP贡献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id9">三大产业对GDP拉动</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id10">三大产业贡献率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id11">居民消费价格指数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macro.html#id12">工业品出厂价格指数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="newsevent.html">新闻事件数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="newsevent.html#id2">即时新闻</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newsevent.html#id3">信息地雷</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newsevent.html#id4">新浪股吧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shibor.html">银行间同业拆放利率</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#shibor">Shibor拆放利率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#id2">银行报价数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#id3">Shibor均值数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#lpr">贷款基础利率（LPR）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shibor.html#id4">LPR均值数据</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storing.html">数据存储</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#csv">CSV文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#excel">Excel文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#hdf5">HDF5文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#json">JSON文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#mysql">MySQL数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storing.html#mongodb">MongoDB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="donate.html">关于捐助</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="#">TuShare 0.2.9 documentation</a> &raquo;</li> 
+      </ul>
+	  <wb:follow-button uid="1304687120" type="red_1" width="67" height="24" style="position:absolute;top:0;right:0;border:0;z-index:1000;width:260px"></wb:follow-button>
+      <a target="_blank" href="https://github.com/waditu/tushare">
+      	<img alt="Fork me on GitHub" src="_static/fork.png" style="position:absolute;top:0;right:0;border:0;z-index:1000;width:149px" id="fork-image">
+      </a>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Jimmy Liu.
+	waditu.
+    </div>
+  </body>
+</html>
